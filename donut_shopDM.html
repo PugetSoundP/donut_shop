@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset= "UTF-8">
+	<title>Donut Shop</title>
+</head>
+<body>
+	<main id="content">
+		<table id="mytable">
+			<tr>
+				<th>Top Pot Locations</th><th>7:00AM</th><th>8:00AM</th><th>9:00AM</th><th>10:00AM</th><th>11:00AM</th><th>12:00PM</th><th>1:00PM</th><th>2:00PM</th><th>3:00PM</th><th>4:00PM</th><th>5:00PM</th><th>6:00PM</th><th>7:00PM</th><th>TOTAL:</th>
+			</tr>
+
+		</table>
+	</main>
+	<script>
+		var DonutShop = function(maxCustormers, minCustormers, averageDonuts, location) {
+			this.maxCustormers = maxCustormers;
+			this.minCustormers = minCustormers;
+			this.averageDonuts = averageDonuts;
+			this.donutsperhour = [];
+			this.dailytotal = 0;
+			this.location = location;
+		};
+		var downtown = new DonutShop(43, 8, 4.5, 'downtown');
+		var capital_hill = new DonutShop(37, 4, 2, 'capital_hill');
+		var south_lake_union = new DonutShop(23, 9, 6.33, 'south_lake_union');
+		var wedgewood = new DonutShop(28, 2, 1.25, 'wedgewood');
+		var ballard = new DonutShop(58, 8, 3.75, 'ballard');
+			console.dir (downtown);
+			console.dir (capital_hill);
+			console.dir (south_lake_union);
+			console.dir (wedgewood);
+			console.dir (ballard);
+
+		DonutShop.prototype.aveHourlyDonuts = function() {
+    	var custormers = Math.floor(Math.random() * (this.maxCustormers - this.minCustormers + 1)) + this.minCustormers;
+    	var avethishour = custormers * this.averageDonuts
+    	this.donutsperhour.push(avethishour);
+    	this.dailytotal = this.dailytotal + avethishour;
+    	return this.donutsperhour;
+		};
+			var i = 0;
+			for(i; i < 11; i++) {
+				downtown.aveHourlyDonuts();
+				capital_hill.aveHourlyDonuts();
+				south_lake_union.aveHourlyDonuts();
+				wedgewood.aveHourlyDonuts();
+				ballard.aveHourlyDonuts();
+			}
+
+
+		var content = document.getElementById('content');
+		var main = document.createElement('p');
+		mainEl.innerHTML = main.username;
+		var main = document.getElementById('downtown', 'capital_hill', 'south_lake_union', 'ballard');
+
+		// var downtown = new averageCustomers('downtown');
+		// var capital_hill = new averageCustomers('capital_hill');
+		// var south_lake_union = new averageCustomers('south_lake_union');
+		// var ballard = new averageCustomers('ballard');
+
+		// main.appendChild(downtown.render());
+		// main.appendChild(capital_hill.render());
+		// main.appendChild(south_lake_union());
+		// main.appendChild(ballard());
+
+
+
+
+
+		// Methods to calculate the number of donuts each shop needs to bake per hour and per day.
+
+		// As you define your model, make sure to do the following.
+
+		// Add an HTML table with tr, th, and td tags so that one row represents one location. (See page 132 in the HTML & CSS book)
+		// Update the page's DOM with your model's hourly and daily totals.
+
+
+	</script>
+</body>
+</html>
